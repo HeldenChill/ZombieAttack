@@ -123,6 +123,31 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &403801236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4920852219217042767, guid: 595eab1862f14a249b6dccb8e48e8158, type: 3}
+  m_PrefabInstance: {fileID: 4920852220353829973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &403801237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403801236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebfe013c640e2dd4b8907d887fa7a1c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 403801238}
+  target: {fileID: 2082916888}
+  speed: 1
+--- !u!54 &403801238 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1291714843, guid: 595eab1862f14a249b6dccb8e48e8158, type: 3}
+  m_PrefabInstance: {fileID: 4920852220353829973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &502237214
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +577,11 @@ Transform:
   m_Father: {fileID: 1408573843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2082916888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3485341381606872393, guid: e3a2ce2ac6cdbcf4bb287ba28f224111, type: 3}
+  m_PrefabInstance: {fileID: 3485341381421262973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2101869491
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,11 +723,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1291714843, guid: 595eab1862f14a249b6dccb8e48e8158, type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 1291714843, guid: 595eab1862f14a249b6dccb8e48e8158, type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4920852219217042766, guid: 595eab1862f14a249b6dccb8e48e8158, type: 3}
       propertyPath: m_RootOrder
@@ -705,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4920852219217042766, guid: 595eab1862f14a249b6dccb8e48e8158, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 22.3
       objectReference: {fileID: 0}
     - target: {fileID: 4920852219217042766, guid: 595eab1862f14a249b6dccb8e48e8158, type: 3}
       propertyPath: m_LocalPosition.y

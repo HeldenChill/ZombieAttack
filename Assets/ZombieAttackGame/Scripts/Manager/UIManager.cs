@@ -8,6 +8,7 @@ namespace UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Inst;
+        
         [SerializeField]
         private UIGamePlay uiGameplay;
         [SerializeField]

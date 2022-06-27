@@ -7,7 +7,19 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField]
     float speed = 10f;
+    [SerializeField]
     float lifeTime = 5f;
+    [SerializeField]
+    int damage = 10;
+
+    public int Damage
+    {
+        get => damage;
+        set
+        {
+            damage = value;
+        }
+    }
     float countTime;
 
     bool isCollided = false; 
@@ -28,6 +40,7 @@ public class Bullet : MonoBehaviour
         isCollided = Physics.Raycast(ray, out hit, speed * Time.deltaTime);
 
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
+
         if(countTime <= 0)
         {
             PrefabManager.Inst.PushToPool(gameObject);
@@ -54,7 +67,8 @@ public class Bullet : MonoBehaviour
         //Do Something under here
         if ((int)(Mathf.Pow(2, other.gameObject.layer)) == LayerMask.GetMask("CanTakeDamage"))
         {
-            other.gameObject.GetComponent<ITakeDamage>().TakeDamage(1);
+            other.gameObject.GetComponent<ITakeDamage>().TakeDamage(Damage);
+            PrefabManager.Inst.PushToPool(gameObject);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     
-    public float damage = 10f;
+    public int damage = 100;
     public float range = 100f;
     public float rateOfFire = 2;
     [SerializeField]
@@ -38,6 +38,7 @@ public class Gun : MonoBehaviour
     {
         
         GameObject newBullet = PrefabManager.Inst.PopFromPool(bullet.tag);
+        newBullet.GetComponent<Bullet>().Damage = damage;
         newBullet.transform.position = shootPoint.position;
         newBullet.transform.rotation = transform.rotation;
         //Instantiate(bullet, shootPoint.position, transform.rotation);

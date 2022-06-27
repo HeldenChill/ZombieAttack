@@ -6,6 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Inst;
     private bool gameStarted = false;
+    public Transform Player
+    {
+        get => player;
+    }
+    [SerializeField]
+    Transform player;
 
     private void Awake()
     {
@@ -17,7 +23,7 @@ public class GameManager : MonoBehaviour
 
         Destroy(gameObject);
     }
-    private void OnEnable()
+    private void Start()
     {
         GameStarted = false;
     }

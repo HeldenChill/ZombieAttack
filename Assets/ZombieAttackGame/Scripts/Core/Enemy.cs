@@ -1,24 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using Utilitys;
 
 public class Enemy : MonoBehaviour,ITakeDamage
 {
+    public Action OnEnemyDie;
     [SerializeField]
     Rigidbody rb;
     [SerializeField]
-    Transform target;
+    public Transform target;
     [SerializeField]
     float speed = 5;
-    
+    [SerializeField]
+    int maxHealth = 100;
+    int currentHealth;
+
+    private void OnEnable()
+    {
+        currentHealth = maxHealth;
+    }
+
     private void Update()
     {
-        transform.LookAt(new Vector3(target.position.x,transform.position.y,target.position.z));
+        if(target != null)
+        {
+            transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+        }
     }
     private void FixedUpdate()
     {
-        rb.velocity = transform.forward * speed;
+        rb.velocity = transform.forward * speed + new Vector3(0,rb.velocity.y,0);
     }
 
     public void InitializeTakeDamage()
@@ -28,7 +41,12 @@ public class Enemy : MonoBehaviour,ITakeDamage
 
     public int TakeDamage(int damage)
     {
-        Debug.Log("Enemy Take Damage");
-        return 0;
+        currentHealth -= damage;
+        if(currentHealth <= 0)
+        {
+            OnEnemyDie?.Invoke();
+            Destroy(gameObject);
+        }
+        return damage;
     }
 }

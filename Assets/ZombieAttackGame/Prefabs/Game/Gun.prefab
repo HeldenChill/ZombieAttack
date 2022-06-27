@@ -97,10 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
-  fpsCamera: {fileID: 0}
+  rateOfFire: 2
   bullet: {fileID: 0}
   shootPoint: {fileID: 0}
-  aimPoint: {fileID: 0}
 --- !u!1 &7978679877734867191
 GameObject:
   m_ObjectHideFlags: 0

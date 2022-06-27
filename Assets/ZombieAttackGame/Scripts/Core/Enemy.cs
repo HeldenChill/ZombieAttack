@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilitys;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour,ITakeDamage
 {
     [SerializeField]
     Rigidbody rb;
@@ -10,10 +11,7 @@ public class Enemy : MonoBehaviour
     Transform target;
     [SerializeField]
     float speed = 5;
-    void Start()
-    {
-        
-    }
+    
     private void Update()
     {
         transform.LookAt(new Vector3(target.position.x,transform.position.y,target.position.z));
@@ -21,5 +19,16 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = transform.forward * speed;
+    }
+
+    public void InitializeTakeDamage()
+    {
+        //NOTIFY:Set layer in Inspector
+    }
+
+    public int TakeDamage(int damage)
+    {
+        Debug.Log("Enemy Take Damage");
+        return 0;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilitys;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,12 +10,23 @@ public class Bullet : MonoBehaviour
     float lifeTime = 5f;
     float countTime;
 
+    bool isCollided = false; 
+    RaycastHit hit = default;
+
     private void OnEnable()
     {
         countTime = lifeTime;
     }
     void Update()
     {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if(isCollided)
+        {
+            Collide(hit.collider);
+        }
+
+        isCollided = Physics.Raycast(ray, out hit, speed * Time.deltaTime);
+
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
         if(countTime <= 0)
         {
@@ -24,6 +36,25 @@ public class Bullet : MonoBehaviour
         {
             countTime -= Time.deltaTime;
         }
-        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Collide(other);
+    }
+
+    private void Collide(Collider other)
+    {
+        if (!isCollided)
+            return;
+
+        isCollided = false;
+        hit = default;
+
+        //Do Something under here
+        if ((int)(Mathf.Pow(2, other.gameObject.layer)) == LayerMask.GetMask("CanTakeDamage"))
+        {
+            other.gameObject.GetComponent<ITakeDamage>().TakeDamage(1);
+        }
     }
 }

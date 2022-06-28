@@ -9,6 +9,14 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField]
     float rateOfSpawn = 2f;
     float timeCounter;
+
+    bool isStartSpawn = false;
+
+    public bool IsStartSpawn { 
+        get => isStartSpawn; 
+        set => isStartSpawn = value; 
+    }
+
     private void Awake()
     {
         timeCounter = 1 / rateOfSpawn;
@@ -21,6 +29,9 @@ public class EnemyGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsStartSpawn)
+            return;
+
         timeCounter -= Time.deltaTime;
         if(timeCounter <= 0)
         {
@@ -29,6 +40,7 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
+   
     Vector3 GetRandomPosition()
     {
         float posX;

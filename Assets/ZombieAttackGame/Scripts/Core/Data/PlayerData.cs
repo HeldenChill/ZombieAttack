@@ -17,7 +17,7 @@ public class PlayerData : ScriptableObject
             if(value > 0)
             {
                 maxHP = value;
-                UIManager.Inst.UiGameplay.SetMaxHealth(currentHP);
+                UIManager.Inst.UIGameplay.SetMaxHealth(currentHP);
                 CurrentHP = maxHP;
 
             }
@@ -28,7 +28,7 @@ public class PlayerData : ScriptableObject
         set
         {
             currentHP = Mathf.Clamp(value, 0, maxHP);
-            UIManager.Inst.UiGameplay.SetCurrentHealth(currentHP);
+            UIManager.Inst.UIGameplay.SetCurrentHealth(currentHP);
         }
     }
     public int Kill { 

@@ -6,7 +6,12 @@ using System;
 public class LevelManager : MonoBehaviour
 {
     public Action OnEnemyDie;
+    [SerializeField]
+    EnemyGenerator enemyGenerator;
     public static LevelManager Inst;
+
+    public EnemyGenerator EnemyGenerator { get => enemyGenerator;}
+
     void Awake()
     {
         if (Inst == null)

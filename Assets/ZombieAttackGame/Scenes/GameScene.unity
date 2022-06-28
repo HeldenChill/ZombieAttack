@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 389830266}
   - component: {fileID: 389830267}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73fa145927f525479e41fa529eebe68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGenerator: {fileID: 938128681}
 --- !u!1 &502237214
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +653,18 @@ PrefabInstance:
     - target: {fileID: 1770423947047740837, guid: 4dc3a287e25fdef489f1ea74394b679c, type: 3}
       propertyPath: m_Name
       value: MainGUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182176909738562626, guid: 4dc3a287e25fdef489f1ea74394b679c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -140
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182176909878746546, guid: 4dc3a287e25fdef489f1ea74394b679c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349309760140215366, guid: 4dc3a287e25fdef489f1ea74394b679c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dc3a287e25fdef489f1ea74394b679c, type: 3}

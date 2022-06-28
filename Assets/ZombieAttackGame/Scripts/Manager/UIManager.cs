@@ -20,9 +20,9 @@ namespace UI
         [SerializeField]
         private UIRestartMenu uIRestartMenu;
 
-        public UIGamePlay UiGameplay { get => uiGameplay;}
-        public UIMainMenu UiMainmenu { get => uiMainmenu;}
-        public UIOptionMenu UiOptionmenu { get => uiOptionmenu;}
+        public UIGamePlay UIGameplay { get => uiGameplay;}
+        public UIMainMenu UIMainmenu { get => uiMainmenu;}
+        public UIOptionMenu UIOptionmenu { get => uiOptionmenu;}
         public UIInformation UIInformation { get => uIInformation;}
         public UIRestartMenu UIRestartMenu { get => uIRestartMenu;}
 
@@ -44,7 +44,7 @@ namespace UI
 
         private void OnEnable()
         {
-            UiMainmenu.OnGameStart += OnGameStart;
+            UIMainmenu.OnGameStart += OnGameStart;
         }
 
         public void OpenUI(TypeUI type)
@@ -52,13 +52,13 @@ namespace UI
             switch (type)
             {
                 case TypeUI.UIGamePlay:
-                    UiGameplay.SetActive(true);
+                    UIGameplay.SetActive(true);
                     break;
                 case TypeUI.UIMainMenu:
-                    UiMainmenu.SetActive(true);
+                    UIMainmenu.SetActive(true);
                     break;
                 case TypeUI.UIOptionMenu:
-                    UiOptionmenu.SetActive(true);
+                    UIOptionmenu.SetActive(true);
                     break;
             }
         }
@@ -68,24 +68,25 @@ namespace UI
             switch (type)
             {
                 case TypeUI.UIGamePlay:
-                    UiGameplay.SetActive(false);
+                    UIGameplay.SetActive(false);
                     break;
                 case TypeUI.UIMainMenu:
-                    UiMainmenu.SetActive(false);
+                    UIMainmenu.SetActive(false);
                     break;
                 case TypeUI.UIOptionMenu:
-                    UiOptionmenu.SetActive(false);
+                    UIOptionmenu.SetActive(false);
                     break;
             }
         }
         private void OnGameStart(bool p)
         {
             GameManager.Inst.GameStarted = p;
+            UIInformation.StartWave();
         }
 
         private void OnDisable()
         {
-            UiMainmenu.OnGameStart -= OnGameStart;
+            UIMainmenu.OnGameStart -= OnGameStart;
         }
     }
 }

@@ -9,12 +9,12 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Inst;
     void Awake()
     {
-        if(Inst == null)
+        if (Inst == null)
         {
             Inst = this;
             return;
         }
         Destroy(gameObject);
     }
-    
+
 }

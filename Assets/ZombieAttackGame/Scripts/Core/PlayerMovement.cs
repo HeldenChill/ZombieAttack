@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -64,7 +65,20 @@ public class PlayerMovement : MonoBehaviour
     {
         data.Kill += 1;
     }
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy1")
+        {
+            data.CurrentHP -= 1;
+            if(data.CurrentHP <= 0)
+            {
+                UIManager.Inst.UIRestartMenu.SetScore(data.Kill);
+                UIManager.Inst.UIRestartMenu.SetActive(true);
+                GameManager.Inst.GameStarted = false;
+                
+            }
+        }
+    }
     private void OnDisable()
     {
         LevelManager.Inst.OnEnemyDie -= OnEnemyDie;

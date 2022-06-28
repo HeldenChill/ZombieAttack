@@ -17,11 +17,14 @@ namespace UI
         private UIOptionMenu uiOptionmenu;
         [SerializeField]
         private UIInformation uIInformation;
+        [SerializeField]
+        private UIRestartMenu uIRestartMenu;
 
         public UIGamePlay UiGameplay { get => uiGameplay;}
         public UIMainMenu UiMainmenu { get => uiMainmenu;}
         public UIOptionMenu UiOptionmenu { get => uiOptionmenu;}
         public UIInformation UIInformation { get => uIInformation;}
+        public UIRestartMenu UIRestartMenu { get => uIRestartMenu;}
 
         public enum TypeUI
         {

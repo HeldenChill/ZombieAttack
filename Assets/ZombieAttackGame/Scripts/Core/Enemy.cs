@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour,ITakeDamage
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
-            LevelManager.Inst.OnEnemyDie();
+            LevelManager.Inst?.OnEnemyDie();
             Destroy(gameObject);
         }
         return damage;

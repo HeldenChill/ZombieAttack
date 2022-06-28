@@ -6,7 +6,6 @@ using Utilitys;
 
 public class Enemy : MonoBehaviour,ITakeDamage
 {
-    public Action OnEnemyDie;
     [SerializeField]
     Rigidbody rb;
     [SerializeField]
@@ -44,7 +43,7 @@ public class Enemy : MonoBehaviour,ITakeDamage
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
-            OnEnemyDie?.Invoke();
+            LevelManager.Inst.OnEnemyDie();
             Destroy(gameObject);
         }
         return damage;

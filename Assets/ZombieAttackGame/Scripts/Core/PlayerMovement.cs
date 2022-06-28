@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     public CharacterController controller;
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -15,11 +16,23 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    public PlayerData data;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        data = ScriptableObject.CreateInstance("PlayerData") as PlayerData;
+    }
+
+    private void OnEnable()
+    {
+        LevelManager.Inst.OnEnemyDie += OnEnemyDie;
+    }
+    private void Start()
+    {
+        data.MaxHP = 100;
+        data.Kill = 0;
+        data.Wave = 1;
     }
 
     // Update is called once per frame
@@ -45,5 +58,15 @@ public class PlayerMovement : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void OnEnemyDie()
+    {
+        data.Kill += 1;
+    }
+
+    private void OnDisable()
+    {
+        LevelManager.Inst.OnEnemyDie -= OnEnemyDie;
     }
 }

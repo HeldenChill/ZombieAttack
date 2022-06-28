@@ -15,6 +15,13 @@ namespace UI
         private UIMainMenu uiMainmenu;
         [SerializeField]
         private UIOptionMenu uiOptionmenu;
+        [SerializeField]
+        private UIInformation uIInformation;
+
+        public UIGamePlay UiGameplay { get => uiGameplay;}
+        public UIMainMenu UiMainmenu { get => uiMainmenu;}
+        public UIOptionMenu UiOptionmenu { get => uiOptionmenu;}
+        public UIInformation UIInformation { get => uIInformation;}
 
         public enum TypeUI
         {
@@ -34,7 +41,7 @@ namespace UI
 
         private void OnEnable()
         {
-            uiMainmenu.OnGameStart += OnGameStart;
+            UiMainmenu.OnGameStart += OnGameStart;
         }
 
         public void OpenUI(TypeUI type)
@@ -42,13 +49,13 @@ namespace UI
             switch (type)
             {
                 case TypeUI.UIGamePlay:
-                    uiGameplay.SetActive(true);
+                    UiGameplay.SetActive(true);
                     break;
                 case TypeUI.UIMainMenu:
-                    uiMainmenu.SetActive(true);
+                    UiMainmenu.SetActive(true);
                     break;
                 case TypeUI.UIOptionMenu:
-                    uiOptionmenu.SetActive(true);
+                    UiOptionmenu.SetActive(true);
                     break;
             }
         }
@@ -58,13 +65,13 @@ namespace UI
             switch (type)
             {
                 case TypeUI.UIGamePlay:
-                    uiGameplay.SetActive(false);
+                    UiGameplay.SetActive(false);
                     break;
                 case TypeUI.UIMainMenu:
-                    uiMainmenu.SetActive(false);
+                    UiMainmenu.SetActive(false);
                     break;
                 case TypeUI.UIOptionMenu:
-                    uiOptionmenu.SetActive(false);
+                    UiOptionmenu.SetActive(false);
                     break;
             }
         }
@@ -75,7 +82,7 @@ namespace UI
 
         private void OnDisable()
         {
-            uiMainmenu.OnGameStart -= OnGameStart;
+            UiMainmenu.OnGameStart -= OnGameStart;
         }
     }
 }

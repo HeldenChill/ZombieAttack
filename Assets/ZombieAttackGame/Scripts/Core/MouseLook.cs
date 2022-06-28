@@ -61,7 +61,7 @@ public class MouseLook : MonoBehaviour
         if (isAnimTransition)
             return;
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetMouseButtonDown(1))
         {
             IsFPS = !IsFPS;
         }
